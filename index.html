@@ -27,10 +27,11 @@
                             <a href="#case-main">Case Study</a>
                         </li>
                         <li>
-                            <a href="" target="_blank">Docs</a>
+                            <a href="https://temporal-stork-160.notion.site/Webplug-Documentation-2a208d2620864246a6494fb36cfe6dbe?pvs=4"
+                                target="_blank">Docs</a>
                         </li>
                         <li>
-                            <a href="" target="_blank">Video Demo</a>
+                            <a href="https://youtu.be/5Ns9REq0fLU?si=wvV2rQ2YqgJGMDiI" target="_blank">Video Demo</a>
                         </li>
                         <li>
                             <a href="https://github.com/webhooks-plug" target="_blank">Github</a>
@@ -45,12 +46,13 @@
                 <span>#endpoints <img src="./images/message.png" width="18px" height="18px" /></span>
                 <span class="notif">#sns <img src="./images/notification.png" width="16px" height="16px" /></span>
             </div>
-            <p class="main-text">Webhooks as a <span style="color: #009999;">service</span> infrastructure.</p>
-            <p class="sub-text">Use Webhooks plug to manage webhooks for your customers <br /> or deploy the
-                infrastructure to your own AWS account for your custom needs</p>
+            <p class="main-text">Webhooks as a <span style="color: #e68a00;">service</span> infrastructure.</p>
+            <p class="sub-text">Use WebPlug to manage webhooks for your customers.<br /> Deploy the
+                infrastructure to your own AWS account and get a management UI to <br /> oversee your users webhooks.
+            </p>
         </section>
         <section class="header-img container">
-            <!-- <img src="./images/header.webp" width="100%" height="350rem" /> -->
+            <img src="./images/header.webp" width="100%" height="350rem" />
         </section>
         <section class="case-study">
             <aside class="case-aside">
@@ -61,17 +63,339 @@
                     </li>
                     <li data-id="case-2">
                         <span class="dot"></span>
-                        <a href="#case-2">The motivation</a>
+                        <a href="#case-2">What are webhooks?</a>
+                    </li>
+                    <li data-id="case-2" class="sub-li">
+                        <span class="dot"></span>
+                        <a href="#case-2-1">Alternatives to webhooks</a>
+                    </li>
+                    <li data-id="case-2" class="sub-li">
+                        <span class="dot"></span>
+                        <a href="#case-2-2">Examples of webhooks services</a>
+                    </li>
+                    <li data-id="case-3">
+                        <span class="dot"></span>
+                        <a href="#case-3">WebPlug Architecture</a>
+                    </li>
+                    <li data-id="case-3" class="sub-li">
+                        <span class="dot"></span>
+                        <a href="#case-3-1">Architecture Diagram</a>
+                    </li>
+                    <li data-id="case-3" class="sub-li">
+                        <span class="dot"></span>
+                        <a href="#case-3-2">Webplug Stack</a>
+                    </li>
+                    <li data-id="case-4">
+                        <span class="dot"></span>
+                        <a href="#case-4">How does WebPlug work?</a>
+                    </li>
+                    <li data-id="case-5">
+                        <span class="dot"></span>
+                        <a href="#case-5">Webplug JS client</a>
+                    </li>
+                    <li data-id="case-6">
+                        <span class="dot"></span>
+                        <a href="#case-6">Webplug CLI app</a>
+                    </li>
+                    <li data-id="case-7">
+                        <span class="dot"></span>
+                        <a href="#case-7">Webplug management UI</a>
+                    </li>
+                    <li data-id="case-8">
+                        <span class="dot"></span>
+                        <a href="#case-8">Future Considerations</a>
                     </li>
                 </ul>
             </aside>
             <div id="case-main" class="case-main container-fluid">
                 <h3>Case Study <span style="font-size: 0.875rem;">(Actively being written)</span></h3>
                 <div id="case-1">
-                    <h4>1. About Webhooks Plug</h4>
+                    <h4>1. About WebPlug</h4>
                     <p>
+                        Webplug is a webhooks as a service infrastructure that aims to provide a template for managing
+                        webhooks for users of a service.
+                    </p>
+                    <p>You would typically create a service which can be regarded as an application and then you can
+                        register event types that your users may be interested in receiving notifications for.
+                        Let's say you are a payment provider and you provide services for businesses to create cards for
+                        their users. You would have some event types that a user can subscribe to; for example,
+                        card_issued, card_debited or card_credited.
+                        Whenever a user performs an operation on their card, you want the business to receive a
+                        notification at whatever endpoint they have subscribed to for each event type,
+                        so that they can then perform extra business logic for each user. This is a typical use case for
+                        webplug.</p>
+                    <p>Webplug is built on top of AWS and provides a CLI app for you to deploy the infrastructure to an
+                        AWS account of your choice, there's also a command to destroy the infrastructure off your AWS
+                        account. Lastly we provide a management UI built with shadcn/tailwind you can modify based on
+                        your requirements</p>
+                </div>
+                <div id="case-2">
+                    <h4>2. What are webhooks?</h4>
+                    <p>
+                        Webhooks are a mechanism for automating the flow of information between web applications in
+                        real-time. They allow one application to send data to another in a push-based manner, triggering
+                        events and enabling real-time communication. Webhooks are commonly used in scenarios where
+                        immediate or near real-time updates are required, such as in notifications, integrations, and
+                        automation workflows.
                     </p>
                 </div>
+                <div id="case-2-1">
+                    <h4 class="sub">2.1. Alternatives to webhooks</h4>
+                    <p>Webhoooks are not the only approach to real-time communication in software applications. There
+                        are alternatice technologies and patterns that serve similar purposes. One of the major
+                        differences between webhooks and other types of real real-time communication types is that
+                        webhooks are omni-directional. This section outlines a
+                        few of them:</p>
+                    <ul>
+                        <li style="list-style-type:decimal;"><b style="font-weight: 700; font-size: 1.1rem">
+                                Web-Sockets:
+                            </b>
+                            Web Sockets provide full-duplex communication channels over a single, long-lived connection.
+                            They are designed for real-time bidirectional communication, making them suitable for
+                            applications requiring low-latency updates. Some of the use cases include: real-time chat
+                            applications, live updated, collaborative editing.
+                        </li>
+                        <li style="list-style-type:decimal;"><b style="font-weight: 700; font-size: 1.1rem">
+                                Polling:
+                            </b>
+                            Polling involves regularly checking a server for updates. Clients make periodic requeses to
+                            the server, asking if there are any new events or data. Long polling is a variant where the
+                            server holds the request open until new data is available.
+                        </li>
+                        <li style="list-style-type:decimal;"><b style="font-weight: 700; font-size: 1.1rem">
+                                Server Side Events:
+                            </b>
+                            SSE is a simple and efficient mechanism for sending updates from a server to a client over a
+                            single HTTP connection. It allows servers to push data to web clients over HTTP in
+                            real-time. Some of the use cases include: News feeds, live score updates, stock tickers.
+                        </li>
+                    </ul>
+                </div>
+                <div id="case-2-2">
+                    <h4 class="sub">2.2 Examples of webhook services</h4>
+                    <p>
+                        There are a couple services that currently use webhooks on a large scale. A couple of them
+                        include:
+                    </p>
+                    <ul>
+                        <li style="list-style-type:decimal;"><b style="font-weight: 700; font-size: 1.1rem">
+                                Github Webhooks:
+                            </b>
+                            Github provides webhooks to notify external systems about events in a repository. For
+                            example, you can set up a webhooks to receive notifications about new commits, pull
+                            requests, or issues.
+                            <p>This was the major inspiration behind webplug. I made use of github webhooks when setting
+                                up
+                                a CI/CD pipeline with AWS Codebuild and AWS Codepipeline and started to brainstorm on
+                                how I
+                                could abstract the functionality into a stand alone service.</p>
+                        </li>
+                        <li style="list-style-type:decimal;"><b style="font-weight: 700; font-size: 1.1rem">
+                                Stripe Webhooks:
+                            </b>
+                            Stripe, a payment processing platform, uses webhooks to notify merchants about events
+                            related to payments, subscriptions, and customer actions. This allows businesses to take
+                            immediate actions based on payment events.
+                        </li>
+                        <li style="list-style-type:decimal;"><b style="font-weight: 700; font-size: 1.1rem">
+                                Twilio Webhooks:
+                            </b>
+                            Twilio, a cloud communications platform, offers webhooks to handle events related to phone
+                            calls, SMS messages, and other communication activities.
+                        </li>
+                    </ul>
+                </div>
+                <div id="case-3">
+                    <h4>3. Webplug Architecture</h4>
+                </div>
+                <div id="case-3-1">
+                    <h4 class="sub">3.1 Architecture diagram</h4>
+                    <img src="./images/header.webp" width="100%" height="350rem" />
+                </div>
+                <div id="case-3-2">
+                    <h4 class="sub">3.2 Webplug stack</h4>
+                    <p>
+                        This section outlines all the technologies employed to bring webplug to life.
+                    </p>
+                    <ul>
+                        <li style="list-style-type:decimal;">
+                            <b style="font-weight: 700; font-size: 1.1rem">AWS API Gateway</b>: Provides a unified API
+                            for the client to interact with the backend service. Handles requests through the lambda
+                            functions.
+                        </li>
+                        <li style="list-style-type:decimal;">
+                            <b style="font-weight: 700; font-size: 1.1rem">AWS Simple Notification Service</b>: This is
+                            a fully managed messaging service from AWS. SNS was used to subscribe a new event type as a
+                            topic and then whenever a message is published, it would get sent to all subscribers of that
+                            topic.
+                        </li>
+                        <li style="list-style-type:decimal;">
+                            <b style="font-weight: 700; font-size: 1.1rem">AWS Lambda functions</b>: These were used to
+                            handle the several api routes used in the
+                            application.
+                        </li>
+                        <li style="list-style-type:decimal;">
+                            <b style="font-weight: 700; font-size: 1.1rem">AWS Lambda layers</b>: Lambda layer was used
+                            to initiate the pg pool connection and all lambda functions reference the connection.
+                        </li>
+                        <li style="list-style-type:decimal;">
+                            <b style="font-weight: 700; font-size: 1.1rem">Cloudwatch Logs</b>: SNS was configured to
+                            send the result of the message delivery to the cloudwatch logs of the log lambda. Whenever a
+                            new message result is received, the status is updated in the database.
+                        </li>
+                        <li style="list-style-type:decimal;">
+                            <b style="font-weight: 700; font-size: 1.1rem">AWS CDK</b>: AWS CDK was used to deploy the
+                            webplug infrastructure to AWS.
+                        </li>
+                        <li style="list-style-type:decimal;">
+                            <b style="font-weight: 700; font-size: 1.1rem">Shadcn/tailwind</b>: Shadcn/tailwind were
+                            used to develop components and style the management UI.
+                        </li>
+                    </ul>
+                </div>
+                <div id="case-4">
+                    <h4>4. How does Webplug work?</h4>
+                    <p>This session explains everything that happens from client to server side communication.</p>
+                    <p>Webplug mainly makes use of SNS to manage message delivery. The reason for this choice is because
+                        SNS can fanout messages to multiple subscribers and also automatically handles message delivery
+                        retries.
+                    </p>
+                    <p>The steps involved in the process flow include:</p>
+                    <ul>
+                        <li>
+                            A new service is created
+                        </li>
+                        <li>
+                            A user is created and registered under the service
+                        </li>
+                        <li>
+                            Event types are created for the service. Whenever there is a request to create a new event
+                            type, we create an SNS topic to represent the event type.
+                        </li>
+                        <li>
+                            A user subscribes specific endpoints to particular event types. We retreive the SNS topic
+                            for the event type and create a new subscription with the endpoint.
+                        </li>
+                        <li>
+                            SNS sends a confirm subscription payload to the endpoint, you would need to copy the
+                            subscribe url and paste in a new tab to confirm the subscription so that future messages
+                            would be delivered.
+                        </li>
+                        <li>
+                            Whenever a new message is published for that event type, SNS would automatically send the
+                            message to all subscribers (endpoints) of that topic (event type).
+                        </li>
+                    </ul>
+                </div>
+                <div id="case-5">
+                    <h4>5. Webplug JS Client</h4>
+                    <p>A JS client was built to expose methods to communicate with the various modules. This includes
+                        methods for the service, users, subscriptions, event types and events module.</p>
+                    <p>The webplug JS client is installable from npm as shown in the <a
+                            href="https://temporal-stork-160.notion.site/Webplug-Documentation-2a208d2620864246a6494fb36cfe6dbe?pvs=4"
+                            target="_blank">documentation</a></p>
+                </div>
+                <div id="case-6">
+                    <h4>6. Webplug CLI app</h4>
+                    <p>A cli app was built to deploy and destroy the infrastructure on your AWS account as well as spin
+                        up the management UI.
+                        Information on how to install and use the cli app is specified in the <a
+                            href="https://temporal-stork-160.notion.site/Webplug-Documentation-2a208d2620864246a6494fb36cfe6dbe?pvs=4"
+                            target="_blank">documentation</a>.</p>
+                    <p>The steps involved in deploying the infrastructure is as follows:</p>
+                    <ul>
+                        <li>
+                            The cdk code is cloned from the github repository
+                        </li>
+                        <li>
+                            The code for the management UI is cloned from the github repository
+                        </li>
+                        <li>
+                            The code for the lambda functions is cloned from the github repository
+                        </li>
+                        <li>
+                            When the deploy command is run, cdk references the lambda functions from the server
+                            directory which is where the cloned lambda functions are saved. Once the deployment is
+                            completed, cdk writes the api gateway url and api key id which can be used to retreive the
+                            api key itself to the outputs.json file. These variables are then saved to the .env file in
+                            the management UI codebase.
+                        </li>
+                        <li>
+                            The code for the management UI is cloned from the github repository
+                        </li>
+                </div>
+                <div id="case-7">
+                    <h4>7. Webplug management UI</h4>
+                    <p>The management dashboard provides a UI to manage all your services, users, event types,
+                        subscriptions and view statuses of all messages sent to different subscribers (endpoints). Check
+                        out the <a
+                            href="https://temporal-stork-160.notion.site/Webplug-Documentation-2a208d2620864246a6494fb36cfe6dbe?pvs=4"
+                            target="_blank">documentation</a> for how to access the management UI.</p>
+                    <div style="margin-bottom: 3rem">
+                        <img src="images/services.png" alt="View services for webplug infra" width="100%"
+                            style="margin-bottom: .5rem" />
+                        <sub style="font-size: .85rem;">View information about the services in the webplug
+                            infrastructure.</sub>
+                    </div>
+                    <div style="margin-bottom: 3rem">
+                        <img src="images/users.png" alt="Create a new user and view users of a service" width="100%"
+                            style="margin-bottom: .5rem" />
+                        <sub style="font-size: .85rem;">Create a new user and view users of a service.</sub>
+                    </div>
+                    <div style="margin-bottom: 3rem">
+                        <img src="images/event_type.png" alt="View event types of a service" width="100%"
+                            style="margin-bottom: .5rem" />
+                        <sub style="font-size: .85rem;">Create a new event type or view event types for a service.</sub>
+                    </div>
+                    <div style="margin-bottom: 3rem">
+                        <img src="images/subscription.png" alt="View subscriptions for a user" width="100%"
+                            style="margin-bottom: .5rem" />
+                        <sub style="font-size: .85rem;">View subscriptions for a user.</sub>
+                    </div>
+                    <div style="margin-bottom: 3rem">
+                        <img src="images/messages.png" alt="View messages sent to subscribers for all users"
+                            width="100%" style="margin-bottom: .5rem" />
+                        <sub style="font-size: .85rem;">View messages sent to subscribers for all users.</sub>
+                    </div>
+                </div>
+                <div id="case-8">
+                    <h4>8. Future Considerations</h4>
+                    <p>These are some of the future work that can be implemented</p>
+                    <ul>
+                        <li>Give users the ability to rate limit their webhook endpoints.</li>
+                        <li>Implement functionality to manually trigger message retries after SNS fails to deliver the
+                            message after the maximum number of retries.</li>
+                        <li>Ensure orderly delivery of messages depending on the time they are created.</li>
+                        <li>Dead letter queue to hold messages that fail to be processed.</li>
+                    </ul>
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
                 <br />
                 <br />
                 <br />
